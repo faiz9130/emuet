@@ -135,8 +135,6 @@
 						<?php
 						$stat = array();
 						for ($i=0; $i<7; $i++){
-							preg_match_all("/.{0,20}\b$query\b/", $txt[$i], $out_left);
-							preg_match_all("/\b$query\b.{0,20}/", $txt[$i], $out_right);
 							$berapaKali = preg_match_all("/\b$query\b/", $txt[$i], $out_mid);
 							$stat[] = $berapaKali;
 
