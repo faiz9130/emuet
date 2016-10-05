@@ -17,7 +17,7 @@
 					<li id="link1" class="selected">
 						<a href="index.php">HOME</a>
 					</li>
-					<li id="link2">
+					<li id="link4">
 						<a href="search.php">Search</a>
 					</li>
 					
@@ -27,18 +27,15 @@
 					<li id="link4">
 						<a href="Frequecy.php"><span>Frequecy</span></a>
 					</li>
-					<li id="link5">
+					<li id="link4">
 						<a href="past_year.php">Past Year</a>
 					</li>
-					<!-- <li id="link3">
-						<a href="question.php"><span>Question</span></a>
-					</li> -->
-					<li id="link6">
+					<li id="link4">
 						<a href="about.html">About</a>
 					</li>
-					<li id="link 7">
+						<!-- 					<li id="link 7">
 						<a href="home2.php"> Logout</a>
-						</li>
+						</li> -->
 				
 				</ul>
 				<div>
