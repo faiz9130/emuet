@@ -140,109 +140,31 @@
 						<td width="50" align="center">Year</td>
 
 						<?php
-						for ($i=0; $i<2; $i++)
-						{
-							//echo $txt[$i];
-							// echo "hi".substr_count($txt[$i],$query);
-							$expl = explode($query, $txt[$i]);
+						for ($i=0; $i<7; $i++){
+							preg_match_all("/.{0,20}\b$query\b/", $txt[$i], $out_left);
+							preg_match_all("/\b$query\b.{0,20}/", $txt[$i], $out_right);
+							$berapaKali = preg_match_all("/\b$query\b/", $txt[$i], $out_mid);
 
-							$berapaKali = count($expl);
-
-							if (array_key_exists('1',$expl )) {
-
-								for ($j=0; $j < $berapaKali; $j++) {
-									// items on the left side of middle string
-									$expl_left = explode(" ", $expl[$j]);
-
-									$left_cnt = count($expl_left);
-
-									$new_left = $expl_left[$left_cnt-6]. " " .$expl_left[$left_cnt-5]. " " .$expl_left[$left_cnt-4]. " " .$expl_left[$left_cnt-3] . " " . $expl_left[$left_cnt-2];
-
-									// items on the right side of middle string
-									$expl_right = explode(" ", $expl[$j+1]);
-
-									$new_right = $expl_right[1] . " " . $expl_right[2]. " " . $expl_right[3]. " " . $expl_right[4]. " " . $expl_right[5];
-
-									$new = "... " . $new_left . " " . $query . " " . $new_right . " ...";
-									$leftt = "... " . $new_left;
-									$rightt = $new_right . " ...";
-
-									if(!empty($query) && array_key_exists('1',$expl )) {
+								for ($j = 0; $j < $berapaKali; $j++) {
 									?>
 
 									<tr>
-								 <td width="" align="center"><p><?php echo $leftt; ?></p></td>
+								 <td width="" align="center"><p><?php echo $out_left[0][$j]; ?></p></td>
 
-								 <td width="" align="center"><p><?php echo $query; ?></p></td>
+								 <td width="" align="center"><p><?php echo $out_mid[0][$j]; ?></p></td>
 
-								 <td width="" align="center"><p><?php echo $rightt;?></p></td>
+								 <td width="" align="center"><p><?php echo $out_right[0][$j];?></p></td>
 
 								 <td width="" align="center"><p><?php echo $year[$i];?></p></td>
+							 </tr>
 
-
-								 </tr>
-
-										<?php }
-
-								}
-
-							// // items on the left side of middle string
-							// $expl_left = explode(" ", $expl[0]);
-							//
-							// $left_cnt = count($expl_left);
-							//
-							// $new_left = $expl_left[$left_cnt-6]. " " .$expl_left[$left_cnt-5]. " " .$expl_left[$left_cnt-4]. " " .$expl_left[$left_cnt-3] . " " . $expl_left[$left_cnt-2];
-							//
-							// // items on the right side of middle string
-							// $expl_right = explode(" ", $expl[1]);
-							//
-							// $new_right = $expl_right[1] . " " . $expl_right[2]. " " . $expl_right[3]. " " . $expl_right[4]. " " . $expl_right[5];
-
-							// new string formated
-							// $new = "... " . $new_left . " " . $query . " " . $new_right . " ...";
-							// $leftt = "... " . $new_left;
-							// $rightt = $new_right . " ...";
-
-						}
-
-							//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-						?>
-						<?php
-						{
-
-						//print $new;
-						}
-
-						?>
-
-
-
-						<?php
-						//  if(!empty($query) && array_key_exists('1',$expl )) {
-						 ?>
-
-						 <!-- <tr>
-						<td width="" align="center"><input id="word" name="word" type="text" value='<?php echo $leftt; ?>' size="30"/>  </td>
-
-						<td width="" align="center"><input id="meaning" name="meaning" type="text" value='<?php echo $query; ?>' size="10"/> </td>
-
-						<td width="" align="center"><input id="word" name="word" type="text" value='<?php echo $rightt; ?>' size="30"/>  </td>
-
-						<td width="" align="center"><input id="meaning" name="meaning" type="text" value='<?php echo $year[$i]; ?>' size="5"/> </td>
-
-
-						</tr> -->
-
-							 <?php //}
+							 <?php
 							 }
 							}
+						}
 							?>
 
 						</table>
-
-
-
 				</div>
 			</div>
 		</div>
