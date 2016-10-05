@@ -1,0 +1,143 @@
+<?php require_once('connection/connection.php');?>
+	
+
+<!DOCTYPE HTML>
+<!-- Website Template by freewebsitetemplates.com -->
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>E-MUET Corpus</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+<body>
+	<div id="background">
+		<div id="page">
+			<div id="sidebar">
+				<a href="home.html" class="logo"><img src="images/muet.png" width="145" height="auto" alt=""></a>
+				<ul class="navigation">
+					<li id="link1" class="selected">
+						<a href="home.html">HOME</a>
+					</li>
+					<li id="link2">
+						<a href="search.html">Search</a>
+					</li>
+					<li id="link3">
+						<a href="events.html"><span>Question</span></a>
+					</li>
+					<li id="link4">
+						<a href="concordance.html"><span>Concordance</span> Colloquial</a>
+					</li>
+					<li id="link5">
+						<a href="blog.html">Blog</a>
+					</li>
+					<li id="link6">
+						<a href="about.html">About</a>
+					</li>
+				</ul>
+				<div>
+					<h3>location:</h3>
+					<ul>
+						<li>
+							UR 5417, This is
+						</li>
+						<li>
+							just a place holder,
+						</li>
+						<li>
+							SVR 9876
+						</li>
+					</ul>
+				</div>
+				<div>
+					<h3>call:</h3>
+					<ul>
+						<li>
+							987 654 000
+						</li>
+						<li>
+							234 000 479
+						</li>
+					</ul>
+				</div>
+				<div>
+					<h3>social:</h3>
+					<ul>
+						<li class="facebook">
+							<a href="http://freewebsitetemplates.com/go/facebook/">facebook</a>
+						</li>
+						<li class="twitter">
+							<a href="http://freewebsitetemplates.com/go/twitter/">twitter</a>
+						</li>
+						<li class="googleplus">
+							<a href="http://freewebsitetemplates.com/go/googleplus/">googleplus</a>
+						</li>
+					</ul>
+				</div>
+				<div class="copyright">
+					<p>
+						&copy; Copyright 2012. <span>All rights reserved.</span>
+					</p>
+				</div>
+			</div>
+			<div id="content">
+				<span></span>
+				<div class="header">
+					<img src="images/search.png" alt="">
+				</div>
+				<div class="section">
+					<h2>Search</h2>
+					<p>
+						<form name="" action="search.html" method="POST">
+						<input type="text" name="search" value="" id="Search" >
+						<input type= "submit" name="submit" value="search"  />
+					
+					<?php					
+					
+					$search= @$_POST['search'];
+					
+					$sql = "SELECT idSearch,word,meaning FROM word WHERE idSearch ='$search'";
+					$result = mysqli_query($conn,$sql)or die("Error: ".mysqli_error($conn));
+					error_reporting(E_ALL^E_NOTICE);
+					while($row = mysqli_fetch_array($result))
+					{
+					//looping equipment
+					$word= $row['word'];
+					$meaning= $row['meaning'];
+					
+					}
+					?>
+					<h3> Words and Meaning </h3>
+					<table width="377" border="1" align="top">
+					<tr>
+					<td width="75" align="center">Word</td>
+					
+					<td width="80" align="center">Meaning</td>
+					
+					<tr>
+					<td width="75" align="center"><input id="word" name="word" type="text" value='<?php echo  $word; ?>'/>  </td>
+					
+					<td width="75" align="center"><input id="meaning" name="meaning" type="text" value='<?php echo  $meaning; ?>'/> </td>
+					
+					</tr>
+					</form>
+						
+					</p>
+				
+					<div>
+						
+						<ul>
+							<li>
+			
+
+						
+					</div>
+					<p>
+						
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+<?php mysqli_close($conn);?>
